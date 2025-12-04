@@ -42,6 +42,7 @@ When you do:
 ```python
 requests.get("https://pokeapi.co/api/v2/pokemon/bulbasaur")
 ```
+
 you’re saying:
 
 > “Hey Pokémon Center! Please send me all the information you have on Bulbasaur!”
