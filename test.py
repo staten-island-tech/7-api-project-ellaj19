@@ -1,16 +1,21 @@
 import requests
 
-def getdog(RandomDog):
-    response = requests.get(f"https://random.dog/woof.json{RandomDog.lower()}")
+def getcat(cat):
+    response = requests.get(f"https://api.thecatapi.com/v1/images/search{cat.lower()}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
+    for key, value in cat.items():
+        print(key, "→", value)
 
     data = response.json()
     return {
-        "size": data["fileSizeBytes"],
-        "image": data["url"]
+        "id": data["id"],
+        "url": data["url"],
+        "width": data["width"],
+        "height": data["height"]
     }
 
-dog = getdog("Golden Retriever")
-print(dog)
+
+cat = getcat("cv9")
+print(cat)
