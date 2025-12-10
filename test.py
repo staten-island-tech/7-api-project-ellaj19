@@ -13,17 +13,27 @@ import requests
 fruit = getfruit("strawberry")
 print(fruit) """
 
-def getcat(cat):
-    response = requests.get(f"https://api.edamam.com/api/recipes/v2/{cat.lower()}")
+def getmario(nintendo):
+    response = requests.get(f"https://www.amiiboapi.com/api/{nintendo.lower()}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
     
     data = response.json()
-    return data
+    return {
+         "amiiboSeries": data["amiiboSeries"],
+			"character": data["character"],
+			"gameSeries": data["gameSeries"],
+			"head": data["head"],
+			"image": data["image"],
+			"name": data["name"],
+			"release": data["release"],
+			"tail": data["tail"],
+			"type": data["type"]
+    }
 
 
-meow = getcat("cookies")
+meow = getmario("amiibo/?name=yoshi")
 print(meow)
 
 """ return {
