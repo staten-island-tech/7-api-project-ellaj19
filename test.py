@@ -12,28 +12,25 @@ import requests
 
 fruit = getfruit("strawberry")
 print(fruit) """
+import pprint
 
 def getmario(nintendo):
-    response = requests.get(f"https://www.amiiboapi.com/api/{nintendo.lower()}")
+    response = requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={nintendo.lower()}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
     
     data = response.json()
-    return {
-         "amiiboSeries": data["amiiboSeries"],
-			"character": data["character"],
-			"gameSeries": data["gameSeries"],
-			"head": data["head"],
-			"image": data["image"],
-			"name": data["name"],
-			"release": data["release"],
-			"tail": data["tail"],
-			"type": data["type"]
-    }
+    return pprint.pprint(data)
+""" 
+import tk
+window = tk.Tk()
+window.title("Message Reverser") 
+window.geometry("400x250") 
+window.resizable(False, False)
+ """
 
-
-meow = getmario("amiibo/?name=yoshi")
+meow = getmario("yoshi")
 print(meow)
 
 """ return {
