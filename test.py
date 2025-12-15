@@ -24,9 +24,16 @@ def getmario(nintendo):
     return pprint.pprint(data)
 
 import tkinter
-window = tk
+from tkinter import *
+x =  Tk()
+window = tkinter.Tk()
+window.title("Message Reverser") 
+window.geometry("400x250") 
+window.resizable(False, False)
 
-
+prompt = tkinter.Label(window, text="which amiibo would you like to learn about?",
+font=("Limelight", 14))
+prompt.pack(pady=10) 
 
 meow = getmario("yoshi")
 print(meow)
