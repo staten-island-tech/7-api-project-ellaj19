@@ -21,20 +21,24 @@ def getmario(nintendo):
         return None
     
     data = response.json()
-    return pprint.pprint(data)
+    return pprint.pformat(data)
 
 import tkinter
 from tkinter import *
-x =  Tk()
-window = tkinter.Tk()
-window.title("Message Reverser") 
-window.geometry("400x250") 
-window.resizable(False, False)
+def say_hello():
+    thing = getmario(responses.get())
+    label.config(text =thing)
+window =  Tk()
+window.title("Nintendo!")
+my_button = Button(window, text="what nintendo character would you like to see?", command=say_hello, font=("Limelight",16), bg="lightblue", fg="black", relief="raised", padx = 10, pady = 5)
+my_button.pack()
 
-prompt = tkinter.Label(window, text="which amiibo would you like to learn about?",
-font=("Limelight", 14))
-prompt.pack(pady=10) 
+responses = Entry(window, width= 30)
+responses.pack()
 
+label = Label(window, text="", wraplength= 800)
+label.pack()
+window.mainloop()
 meow = getmario("yoshi")
 print(meow)
 
