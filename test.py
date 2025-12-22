@@ -30,7 +30,7 @@ def say_hello():
     label.config(text =thing)
 window =  Tk()
 window.title("Nintendo!")
-my_button = Button(window, text="what nintendo character would you like to see?", command=say_hello, font=("Limelight",16), bg="lightblue", fg="black", relief="raised", padx = 10, pady = 5)
+my_button = Button(window, text="what nintendo character would you like to see? write a name and press the button", command=say_hello, font=("Limelight",16), bg="cornflower blue", fg="black", relief="raised", padx = 10, pady = 5)
 my_button.pack()
 
 responses = Entry(window, width= 30)
